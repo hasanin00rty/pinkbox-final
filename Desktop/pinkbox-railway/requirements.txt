@@ -1,0 +1,7 @@
+flask
+flask_sqlalchemy
+gunicorn
+requests
+pillow
+python-telegram-bot==20.3
+python-dotenv
