@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PinkBox | Home</title>
+</head>
+<body>
+    <h1>منتجات PinkBox</h1>
+    {% for product in products %}
+    <div>
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <p>السعر: {{ product.price }} د.ع</p>
+        <img src="{{ url_for('uploaded_file', filename=product.image_filename) }}" width="200">
+    </div>
+    {% endfor %}
+</body>
+</html>

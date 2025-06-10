@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PinkBox | Admin</title>
+</head>
+<body>
+    <h1>لوحة الإدارة</h1>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="name" placeholder="اسم المنتج" required><br>
+        <textarea name="description" placeholder="الوصف" required></textarea><br>
+        <input type="number" step="0.01" name="price" placeholder="السعر" required><br>
+        <input type="file" name="image" required><br>
+        <button type="submit">إضافة المنتج</button>
+    </form>
+    <h2>جميع المنتجات:</h2>
+    {% for product in products %}
+    <div>
+        <h3>{{ product.name }}</h3>
+        <img src="{{ url_for('uploaded_file', filename=product.image_filename) }}" width="150">
+        <p>{{ product.description }}</p>
+        <p>{{ product.price }} د.ع</p>
+        <a href="{{ url_for('delete_product', id=product.id) }}">🗑 حذف</a>
+    </div>
+    {% endfor %}
+</body>
+</html>
